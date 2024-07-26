@@ -10,7 +10,7 @@ export const Welcome: React.FC = () => (
       />
     </div>
     <p>
-    Hey there! Welcome to BMW. I'm {assistantProfile.name}, your sales assistant. Are you looking for something specific today, or would you like some suggestions? Whether you have questions about models, features, or financing, I've got you covered. How can I assist you?
+    Welcome to BMW. My name is Sarah and I am your sales assistant. Please specify your requirements or inquiries regarding our vehicle models, features, or financing options. I am here to provide you with the necessary information and assistance. How may I assist you today?
     </p>
   </div>
 );
