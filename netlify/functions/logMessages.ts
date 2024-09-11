@@ -26,7 +26,16 @@ const handler: Handler = async (event) => {
   }
 
   const { message, from, userId } = JSON.parse(event.body || '{}') as SheetData;
-  const timestamp = new Date().toISOString();
+  const timestamp = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Berlin',
+    hour12: false,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  }).format(new Date());
 
   const sheetId = process.env.GOOGLE_SHEET_ID;
 
@@ -38,7 +47,7 @@ const handler: Handler = async (event) => {
     await sheets.spreadsheets.values.append({
       auth,
       spreadsheetId: sheetId,
-      range: 'Sheet1!A:D', // Adjust this to match your sheet's structure
+      range: 'Sheet1!A:D', 
       valueInputOption: 'USER_ENTERED',
       requestBody: {
         values: [[timestamp, userId, from, message]]
