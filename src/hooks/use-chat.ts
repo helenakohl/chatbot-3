@@ -85,17 +85,6 @@ export function useChat() {
     }
   }, []);
 
-  useEffect(() => {
-    const storedUserId = localStorage.getItem('chatUserId');
-    if (storedUserId) {
-      setUserId(storedUserId);
-    } else {
-      const newUserId = uuidv4();
-      localStorage.setItem('chatUserId', newUserId);
-      setUserId(newUserId);
-    }
-  }, []);
-
   const writeToGoogleSheet = async (message: string, from: 'user' | 'assistant') => {
     if (!userId) return;
     
